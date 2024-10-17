@@ -8,7 +8,7 @@ from transaction_metrics import display_transaction_metrics  # Import transactio
 st.set_page_config(page_title="Nasswallet Dashboard", layout="wide")
 
 # Title of the application
-st.title("Nasswallet Dashboard")
+st.title("NassPay Dashboard")
 
 # Create columns to display Cardholder and Card metrics side by side
 #col1, col2 = st.columns(2)
