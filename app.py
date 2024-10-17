@@ -1,8 +1,7 @@
 import streamlit as st
-from cardholder_metrics import display_cardholder_metrics
-from card_metrics import display_card_metrics
+
 from metrics_display import display_metrics
-from metrics_display1 import display_metrics1
+
 from transaction_metrics import display_transaction_metrics  # Import transaction metrics
 
 # Set page configuration
