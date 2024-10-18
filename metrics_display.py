@@ -95,7 +95,7 @@ def display_metrics():
     # Define color class mapping for yesterday's stats
     yesterday_color_class_map_card = {
         0: '#28a745',  # Green
-        1: '#FFD700',  # Gold
+        1: '#4682B4',  # Gold
         2: '#007bff',  # Blue
         3: '#ff7f50',  # Orange
         4: '#dc3545',  # Red
