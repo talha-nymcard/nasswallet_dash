@@ -20,13 +20,14 @@ def display_metrics():
 
     # Color class mapping for current cardholder stats
     color_class_map_cardholder = {
-        'ACTIVE': '#99CC99',
-        'INACTIVE': '#808080',
-        'PENDINGIDVERIFICATION': '#A7C7E7',
-        'SUSPENDED': '#ffcc66',
-        'TERMINATED': '#c0392b',
-        'PENDINGKYC': '#4169E1',
-        'total': '#001F3F'
+        'ACTIVE': '#669966',             # Darker green
+        'INACTIVE': '#4d4d4d',           # Darker grey
+        'PENDINGIDVERIFICATION': '#6699cc',  # Darker light blue
+        'SUSPENDED': '#cc9933',          # Darker yellow-orange
+        'TERMINATED': '#992d22',         # Darker red
+        'PENDINGKYC': '#27408b',         # Darker royal blue
+        'total': '#001a33'               # Darker navy blue
+
     }
 
     # Define color class mapping for yesterday's cardholder stats
