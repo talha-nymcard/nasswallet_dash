@@ -31,7 +31,7 @@ def display_metrics():
 
     # Define color class mapping for yesterday's cardholder stats
     yesterday_color_class_map_cardholder = {
-        0: '#28a745',
+        0: '#AA98A9',
         1: '#4682B4',
         2: '#007bff',
         3: '#ff7f50',
