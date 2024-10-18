@@ -52,7 +52,7 @@ def display_metrics():
     st.subheader("Cardholder Onboarding Summary")
 
     # Current Cardholder Status
-    st.write("### Current Cardholder Status")
+    st.write("### Current Status")
     cols_cardholder = st.columns(len(status_counts_cardholder) + 1)  # +1 for total
 
     for i, (status, count) in enumerate(status_counts_cardholder.items()):
@@ -65,7 +65,7 @@ def display_metrics():
                     f"<p style='margin: 0; font-weight: bold;'>Total Cardholders</p><h3 style='margin: 0;'>{total_cardholder_count}</h3></div>", unsafe_allow_html=True)
 
     # Counts for Yesterday
-    st.write("### Counts for Yesterday")
+    st.write("### Yesterday Stats")
     cols_yesterday_cardholder = st.columns(len(yesterday_cardholder_counts) + 1)  # +1 for total
     yesterday_total_cardholder = df_yesterday_cardholder['count'].sum()
 
@@ -115,7 +115,7 @@ def display_metrics():
     st.subheader("Card Summary")
     
     # Current Card Status
-    st.write("### Current Card Status")
+    st.write("### Current Status")
     cols_card = st.columns(len(status_counts_card) + 1)  # +1 for total
 
     for i, (status, count) in enumerate(status_counts_card.items()):
@@ -128,7 +128,7 @@ def display_metrics():
                     f"<p style='margin: 0; font-weight: bold;'>Total Cards</p><h3 style='margin: 0;'>{total_card_count}</h3></div>", unsafe_allow_html=True)
 
     # Counts for Yesterday
-    st.write("### Counts for Yesterday")
+    st.write("### Yesterday Stats")
     cols_yesterday_card = st.columns(len(yesterday_card_counts) + 1)  # +1 for total
 
     for i, item in enumerate(yesterday_card_counts):
