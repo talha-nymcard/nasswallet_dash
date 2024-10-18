@@ -40,13 +40,21 @@ def display_metrics():
     }
 
     # Extract yesterday's data for cardholders
+    #yesterday_cardholder_counts = [
+     #   {
+      #      "operation_newstate": row["newstate"].capitalize() if pd.notna(row["newstate"]) else row["operation"].capitalize(),
+       #     "count": row["count"]
+        #}
+        #for index, row in df_yesterday_cardholder.iterrows()
+    #]
     yesterday_cardholder_counts = [
         {
-            "operation_newstate": row["newstate"].capitalize() if pd.notna(row["newstate"]) else row["operation"].capitalize(),
+            "operation_newstate": row["operation"].capitalize() if "creation" in row["operation"].lower() else row["newstate"].capitalize() if pd.notna(row["newstate"]) else row["operation"].capitalize(),
             "count": row["count"]
         }
         for index, row in df_yesterday_cardholder.iterrows()
     ]
+
 
     # Streamlit layout for cardholder metrics
     st.subheader("Cardholder Onboarding Summary")
@@ -131,11 +139,25 @@ def display_metrics():
     st.write("### Yesterday Stats")
     cols_yesterday_card = st.columns(len(yesterday_card_counts) + 1)  # +1 for total
 
+    #for i, item in enumerate(yesterday_card_counts):
+     #   with cols_yesterday_card[i]:
+      #      st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {yesterday_color_class_map_card[i % len(yesterday_color_class_map_card)]}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
+       #                 f"<p style='margin: 0; font-weight: bold;'>{item['operation_newstate']}</p><h3 style='margin: 0;'>{item['count']}</h3></div>", unsafe_allow_html=True)
+#####################
     for i, item in enumerate(yesterday_card_counts):
-        with cols_yesterday_card[i]:
-            st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {yesterday_color_class_map_card[i % len(yesterday_color_class_map_card)]}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                        f"<p style='margin: 0; font-weight: bold;'>{item['operation_newstate']}</p><h3 style='margin: 0;'>{item['count']}</h3></div>", unsafe_allow_html=True)
+        operation_display = (
+            item["operation"].capitalize() if "creation" in item["operation"].lower()
+            else item["newstate"].capitalize() if pd.notna(item["newstate"])
+            else item["operation"].capitalize()
+        )
 
+        with cols_yesterday_card[i]:
+        st.markdown(
+                f"<div style='height: 120px; padding: 20px; background-color: {yesterday_color_class_map_card[i % len(yesterday_color_class_map_card)]}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
+                f"<p style='margin: 0; font-weight: bold;'>{operation_display}</p><h3 style='margin: 0;'>{item['count']}</h3></div>",
+                unsafe_allow_html=True
+        )
+###################3
     with cols_yesterday_card[-1]:  # Total
         st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_card['total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
                     f"<p style='margin: 0; font-weight: bold;'>Total Cards Yesterday</p><h3 style='margin: 0;'>{df_yesterday_card['count'].sum()}</h3></div>", unsafe_allow_html=True)
