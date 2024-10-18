@@ -27,7 +27,6 @@ def display_metrics():
         'TERMINATED': '#992d22',         # Darker red
         'PENDINGKYC': '#27408b',         # Darker royal blue
         'total': '#001a33'               # Darker navy blue
-
     }
 
     # Define color class mapping for yesterday's cardholder stats
@@ -41,13 +40,6 @@ def display_metrics():
     }
 
     # Extract yesterday's data for cardholders
-    #yesterday_cardholder_counts = [
-     #   {
-      #      "operation_newstate": row["newstate"].capitalize() if pd.notna(row["newstate"]) else row["operation"].capitalize(),
-       #     "count": row["count"]
-        #}
-        #for index, row in df_yesterday_cardholder.iterrows()
-    #]
     yesterday_cardholder_counts = [
         {
             "operation_newstate": row["operation"].capitalize() if "creation" in row["operation"].lower() else row["newstate"].capitalize() if pd.notna(row["newstate"]) else row["operation"].capitalize(),
@@ -55,7 +47,6 @@ def display_metrics():
         }
         for index, row in df_yesterday_cardholder.iterrows()
     ]
-
 
     # Streamlit layout for cardholder metrics
     st.subheader("Cardholder Onboarding Summary")
@@ -66,12 +57,12 @@ def display_metrics():
 
     for i, (status, count) in enumerate(status_counts_cardholder.items()):
         with cols_cardholder[i]:
-            st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder[status]}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                        f"<p style='margin: 0; font-weight: bold;'>{status.capitalize()}</p><h3 style='margin: 0;'>{count}</h3></div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder[status]}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; justify-content: center;'>"
+                        f"<p style='margin: 0; font-weight: bold; font-size: 16px;'>{status.capitalize()}</p><h3 style='margin: 0; font-size: 24px;'>{count}</h3></div>", unsafe_allow_html=True)
 
     with cols_cardholder[-1]:  # Total
-        st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder['total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                    f"<p style='margin: 0; font-weight: bold;'>Total Cardholders</p><h3 style='margin: 0;'>{total_cardholder_count}</h3></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder['total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; justify-content: center;'>"
+                    f"<p style='margin: 0; font-weight: bold; font-size: 16px;'>Total Cardholders</p><h3 style='margin: 0; font-size: 24px;'>{total_cardholder_count}</h3></div>", unsafe_allow_html=True)
 
     # Counts for Yesterday
     st.write("### Yesterday Stats")
@@ -80,12 +71,12 @@ def display_metrics():
 
     for i, item in enumerate(yesterday_cardholder_counts):
         with cols_yesterday_cardholder[i]:
-            st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {yesterday_color_class_map_cardholder[i % len(yesterday_color_class_map_cardholder)]}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                        f"<p style='margin: 0; font-weight: bold;'>{item['operation_newstate']}</p><h3 style='margin: 0;'>{item['count']}</h3></div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {yesterday_color_class_map_cardholder[i % len(yesterday_color_class_map_cardholder)]}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; justify-content: center;'>"
+                        f"<p style='margin: 0; font-weight: bold; font-size: 16px;'>{item['operation_newstate']}</p><h3 style='margin: 0; font-size: 24px;'>{item['count']}</h3></div>", unsafe_allow_html=True)
 
     with cols_yesterday_cardholder[-1]:  # Total
-        st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder['total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                    f"<p style='margin: 0; font-weight: bold;'>Total Cardholders Yesterday</p><h3 style='margin: 0;'>{yesterday_total_cardholder}</h3></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder['total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; justify-content: center;'>"
+                    f"<p style='margin: 0; font-weight: bold; font-size: 16px;'>Total Cardholders Yesterday</p><h3 style='margin: 0; font-size: 24px;'>{yesterday_total_cardholder}</h3></div>", unsafe_allow_html=True)
 
     ### Card Metrics ###
     # Status counts for card inception
@@ -116,8 +107,6 @@ def display_metrics():
     # Extract yesterday's data for cards
     yesterday_card_counts = [
         {
-            #"operation_newstate": row['operation'].capitalize(),
-            #"count": row["count"]
             "operation_newstate": row["operation"].capitalize() if "creation" in row["operation"].lower() else row["newstate"].capitalize() if pd.notna(row["newstate"]) else row["operation"].capitalize(),
             "count": row["count"]
         }
@@ -133,25 +122,26 @@ def display_metrics():
 
     for i, (status, count) in enumerate(status_counts_card.items()):
         with cols_card[i]:
-            st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_card.get(status, '#99CC99')}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                        f"<p style='margin: 0; font-weight: bold;'>{status.capitalize()}</p><h3 style='margin: 0;'>{count}</h3></div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_card.get(status, '#99CC99')}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; justify-content: center;'>"
+                        f"<p style='margin: 0; font-weight: bold; font-size: 16px;'>{status.capitalize()}</p><h3 style='margin: 0; font-size: 24px;'>{count}</h3></div>", unsafe_allow_html=True)
 
     with cols_card[-1]:  # Total
-        st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_card['total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                    f"<p style='margin: 0; font-weight: bold;'>Total Cards</p><h3 style='margin: 0;'>{total_card_count}</h3></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_card['total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; justify-content: center;'>"
+                    f"<p style='margin: 0; font-weight: bold; font-size: 16px;'>Total Cards</p><h3 style='margin: 0; font-size: 24px;'>{total_card_count}</h3></div>", unsafe_allow_html=True)
 
     # Counts for Yesterday
     st.write("### Yesterday Stats")
     cols_yesterday_card = st.columns(len(yesterday_card_counts) + 1)  # +1 for total
+    yesterday_total_card = df_yesterday_card['count'].sum()
 
     for i, item in enumerate(yesterday_card_counts):
         with cols_yesterday_card[i]:
-            st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {yesterday_color_class_map_card[i % len(yesterday_color_class_map_card)]}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                        f"<p style='margin: 0; font-weight: bold;'>{item['operation_newstate']}</p><h3 style='margin: 0;'>{item['count']}</h3></div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {yesterday_color_class_map_card[i % len(yesterday_color_class_map_card)]}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; justify-content: center;'>"
+                        f"<p style='margin: 0; font-weight: bold; font-size: 16px;'>{item['operation_newstate']}</p><h3 style='margin: 0; font-size: 24px;'>{item['count']}</h3></div>", unsafe_allow_html=True)
 
     with cols_yesterday_card[-1]:  # Total
-        st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_card['total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                    f"<p style='margin: 0; font-weight: bold;'>Total Cards Yesterday</p><h3 style='margin: 0;'>{df_yesterday_card['count'].sum()}</h3></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_card['total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; justify-content: center;'>"
+                    f"<p style='margin: 0; font-weight: bold; font-size: 16px;'>Total Cards Yesterday</p><h3 style='margin: 0; font-size: 24px;'>{yesterday_total_card}</h3></div>", unsafe_allow_html=True)
 
-# Run the display function
+# Call the function to display metrics
 display_metrics()
