@@ -94,7 +94,7 @@ def display_metrics():
 
     # Color class mapping for current card stats
     color_class_map_card = {
-        'ACTIVE': '#669966',             # Darker green
+        'ACTIVE': '#AA98A9',             # Darker green
         'INACTIVE': '#4d4d4d',           # Darker grey
         'PENDINGIDVERIFICATION': '#6699cc',  # Darker light blue
         'SUSPENDED': '#cc9933',          # Darker yellow-orange
@@ -116,7 +116,9 @@ def display_metrics():
     # Extract yesterday's data for cards
     yesterday_card_counts = [
         {
-            "operation_newstate": row['operation'].capitalize(),
+            #"operation_newstate": row['operation'].capitalize(),
+            #"count": row["count"]
+            "operation_newstate": row["operation"].capitalize() if "creation" in row["operation"].lower() else row["newstate"].capitalize() if pd.notna(row["newstate"]) else row["operation"].capitalize(),
             "count": row["count"]
         }
         for index, row in df_yesterday_card.iterrows()
