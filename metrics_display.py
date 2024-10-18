@@ -94,21 +94,23 @@ def display_metrics():
 
     # Color class mapping for current card stats
     color_class_map_card = {
-        'ACTIVE': '#99CC99',
-        'SUSPENDED': '#ffcc66',
-        'TERMINATED': '#c0392b',
-        'PENDINGIDVERIFICATION': '#FFD009',
-        'total': '#001F3F'
+        'ACTIVE': '#669966',             # Darker green
+        'INACTIVE': '#4d4d4d',           # Darker grey
+        'PENDINGIDVERIFICATION': '#6699cc',  # Darker light blue
+        'SUSPENDED': '#cc9933',          # Darker yellow-orange
+        'TERMINATED': '#992d22',         # Darker red
+        'PENDINGKYC': '#27408b',         # Darker royal blue
+        'total': '#001a33'               # Darker navy blue
     }
 
     # Define color class mapping for yesterday's stats
     yesterday_color_class_map_card = {
-        0: '#28a745',  # Green
-        1: '#4682B4',  # Gold
-        2: '#007bff',  # Blue
-        3: '#ff7f50',  # Orange
-        4: '#dc3545',  # Red
-        5: '#6f42c1',  # Purple
+        0: '#669966',
+        1: '#4682B4',
+        2: '#007bff',
+        3: '#ff7f50',
+        4: '#a32834',
+        5: '#6f42c1',
     }
 
     # Extract yesterday's data for cards
