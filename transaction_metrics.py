@@ -42,7 +42,7 @@ def calculate_transaction_stats(df):
         'Accepted Transactions USD': accepted_count,
         'Rejected Transactions IQD': rejected_count,
         'Rejected Transactions USD': rejected_count,
-        'Approval Percentage': approval_percentage,
+        'Approval Percentage': round(approval_percentage, 2),  # Round to 2 decimal points
         'Accepted Amount IQD': accepted_iqd_amount,
         'Accepted Amount USD': accepted_usd_amount,
         'Rejected Amount IQD': rejected_iqd_amount,
@@ -65,7 +65,7 @@ def create_currency_summary_df(stats, currency):
             stats['Total Transactions'],
             stats[f'Accepted Transactions {currency}'],
             stats[f'Rejected Transactions {currency}'],
-            stats['Approval Percentage'],
+            f"{stats['Approval Percentage']:.2f}%",  # Format percentage with 2 decimal points
             stats[f'Accepted Amount {currency}'],
             stats[f'Rejected Amount {currency}'],
         ]
@@ -73,10 +73,10 @@ def create_currency_summary_df(stats, currency):
 
 # Function to display detailed transaction summaries
 def display_transaction_summaries(title, grouped_data):
-    st.dataframe(grouped_data)
+    st.write(grouped_data)  # Use st.write to remove serial numbers
 
 # Function to display pie charts for transaction status
-def display_pie_chart(stats, title):
+def display_pie_chart(stats, title, key_suffix):
     labels = ['Approved', 'Declined']
     values_iqd = [stats['Accepted Transactions IQD'], stats['Rejected Transactions IQD']]
     values_usd = [stats['Accepted Transactions USD'], stats['Rejected Transactions USD']]
@@ -87,16 +87,16 @@ def display_pie_chart(stats, title):
     fig.add_trace(go.Pie(labels=labels, values=values_iqd, name='IQD'), row=1, col=1)
     fig.add_trace(go.Pie(labels=labels, values=values_usd, name='USD'), row=1, col=2)
 
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, key=f"pie_chart_{key_suffix}")
 
-# Function to display a pie chart based on transaction types
-def display_transaction_type_pie_chart(grouped_data, title):
+# Function to display pie chart based on transaction types
+def display_transaction_type_pie_chart(grouped_data, title, key_suffix):
     # Group by transaction type
     transaction_type_counts = grouped_data['transaction_type'].value_counts()
 
     fig = go.Figure(data=[go.Pie(labels=transaction_type_counts.index, values=transaction_type_counts.values)])
     fig.update_layout(title=f"{title} - Transaction Type Distribution")
-    return fig  # Return the figure
+    st.plotly_chart(fig, key=f"type_pie_chart_{key_suffix}")
 
 # Function to display comparison bar chart between IQD and USD transactions
 def display_comparison_bar_chart(yesterday_stats):
@@ -118,11 +118,10 @@ def display_comparison_bar_chart(yesterday_stats):
     ])
     fig.update_layout(barmode='group', title='Transaction Comparison: IQD vs USD')
     
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, key="comparison_bar_chart")
 
 # Main function to display transaction metrics
 def display_transaction_metrics():
-
     # Load the data
     yesterday_df, inception_df = load_data()
 
@@ -136,67 +135,46 @@ def display_transaction_metrics():
     inception_iqd_summary = create_currency_summary_df(inception_stats, 'IQD')
     inception_usd_summary = create_currency_summary_df(inception_stats, 'USD')
 
-    # Display summaries for Yesterday
-    st.write("### Transaction Summary (Yesterday)")
-    col1, col2 = st.columns(2)
+    # Display summaries for Inception and Yesterday in a 4-column layout
+    col1, col2, col3 = st.columns(3)
     
+    # IQD and USD summaries (Inception)
     with col1:
-        st.write("#### IQD Transactions")
-        st.dataframe(yesterday_iqd_summary)
-
+        st.write("#### IQD Transactions (Inception)")
+        st.dataframe(inception_iqd_summary, use_container_width=True)  # Use st.dataframe to avoid serial numbers
+    
     with col2:
-        st.write("#### USD Transactions")
-        st.dataframe(yesterday_usd_summary)
-
-    # Display summaries for Inception
-    st.write("### Transaction Summary (Inception)")
-    col3, col4 = st.columns(2)
+        display_pie_chart(inception_stats, "Inception", key_suffix="inception")
     
     with col3:
-        st.write("#### IQD Transactions")
-        st.dataframe(inception_iqd_summary)
+        st.write("#### USD Transactions (Inception)")
+        st.dataframe(inception_usd_summary, use_container_width=True)  # Use st.dataframe to avoid serial numbers
 
-    with col4:
-        st.write("#### USD Transactions")
-        st.dataframe(inception_usd_summary)
-
-    # Display detailed transaction summaries with context
-    st.write("### Detailed Transaction Summary")
-    col5, col6 = st.columns(2)
+    # Display summaries for Yesterday
+    col4, col5, col6 = st.columns(3)
     
+    with col4:
+        st.write("#### IQD Transactions (Yesterday)")
+        st.dataframe(yesterday_iqd_summary, use_container_width=True)  # Use st.dataframe to avoid serial numbers
     with col5:
-        st.write("#### Transactions by Type (Yesterday)")
-        display_transaction_summaries("Transactions by Type (Yesterday)", yesterday_stats['Grouped Data'])
+        display_pie_chart(yesterday_stats, "Yesterday", key_suffix="yesterday")        
 
     with col6:
-        st.write("#### Transactions by Type (Inception)")
-        display_transaction_summaries("Transactions by Type (Inception)", inception_stats['Grouped Data'])
-
-    # Display pie charts for approved and rejected transactions
-    st.write("### Approved vs Rejected Transactions (Yesterday)")
-    display_pie_chart(yesterday_stats, "Yesterday")
-
-    st.write("### Approved vs Rejected Transactions (Inception)")
-    display_pie_chart(inception_stats, "Inception")
+        st.write("#### USD Transactions (Yesterday)")
+        st.dataframe(yesterday_usd_summary, use_container_width=True)  # Use st.dataframe to avoid serial numbers
 
     # Display transaction type distribution charts for Yesterday and Inception side by side
     st.write("### Transaction Type Distribution")
     col7, col8 = st.columns(2)
     
     with col7:
-        st.write("#### Yesterday")
-        yesterday_type_chart = display_transaction_type_pie_chart(yesterday_stats['Grouped Data'], "Yesterday")
-        st.plotly_chart(yesterday_type_chart)
-
-    with col8:
         st.write("#### Inception")
-        inception_type_chart = display_transaction_type_pie_chart(inception_stats['Grouped Data'], "Inception")
-        st.plotly_chart(inception_type_chart)
-
-    # Display comparison chart between IQD and USD transactions
-    st.write("### IQD vs USD Transaction Comparison (Yesterday)")
-    display_comparison_bar_chart(yesterday_stats)
+        display_transaction_type_pie_chart(inception_stats['Grouped Data'], "Inception", key_suffix="inception_type")
+    
+    with col8:
+        st.write("#### Yesterday")
+        display_transaction_type_pie_chart(yesterday_stats['Grouped Data'], "Yesterday", key_suffix="yesterday_type")
 
 # Run the transaction metrics
 if __name__ == "__main__":
-    display_transaction_metrics()
+    display_transaction_metrics()  # Call the function to display transaction metrics
