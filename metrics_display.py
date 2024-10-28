@@ -88,12 +88,12 @@ def display_metrics():
         count = status_counts_cardholder.get(status, 0)
         with cols_cardholder[i]:
             st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder.get(status, '#4d4d4d')}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                        f"<h5>{status}</h5><h3>{count}</h3></div>", unsafe_allow_html=True)
+                        f"<h6>{status}</h6><h3>{count}</h3></div>", unsafe_allow_html=True)
 
     # Display total cardholders
     with cols_cardholder[-1]:
         st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder['Total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                    f"<h5>Total</h5><h3>{total_cardholder_count}</h3></div>", unsafe_allow_html=True)
+                    f"<h6>Total</h6><h3>{total_cardholder_count}</h3></div>", unsafe_allow_html=True)
 
     # Display yesterday's status
     st.write("### Yesterday's Status")
@@ -103,12 +103,12 @@ def display_metrics():
         count = count_dict.get(status, 0)
         with cols_yesterday_cardholder[i]:
             st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder.get(status, '#4d4d4d')}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                        f"<h5>{status}</h5><h3>{count}</h3></div>", unsafe_allow_html=True)
+                        f"<h6>{status}</h6><h3>{count}</h3></div>", unsafe_allow_html=True)
 
     total_yesterday_cardholder_count = sum(count_dict.values())
     with cols_yesterday_cardholder[-1]:
         st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder['Total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                    f"<h5>Total</h5><h3>{total_yesterday_cardholder_count}</h3></div>", unsafe_allow_html=True)
+                    f"<h6>Total</h6><h3>{total_yesterday_cardholder_count}</h3></div>", unsafe_allow_html=True)
 
  ### Card Metrics ###
 
