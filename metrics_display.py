@@ -36,17 +36,17 @@ def display_metrics():
     # Color class mapping for current cardholder stats
     color_class_map_cardholder = {
         'ACTIVE': '#669966',             
-        'INACTIVE': '#4d4d4d',           
+        'INACTIVE': 'rgb(199 65 56)',           
         'PENDINGID VERIFICATION': '#6699cc',  
         'Suspended': '#cc9933',          
-        'TERMINATED': '#992d22',         
+        'TERMINATED': 'rgb(67 178 173)',         
         'PENDING KYC': '#27408b',         
-        'Total': '#001a33',               
+        'Total': 'rgb(53 141 114)',               
         'Activated': '#669966',
-        'Inactive': '#f44336',
+        'Inactive': 'rgb(199 65 56)',
         'Pending IDV': '#6699cc',
         'Pending KYC': '#4692A4',
-        'Terminated': '#992d22',
+        'Terminated': 'rgb(67 178 173)',
         'Created': '#2199D4',
     }
 
@@ -93,7 +93,7 @@ def display_metrics():
     # Display total cardholders
     with cols_cardholder[-1]:
         st.markdown(f"<div style='height: 120px; padding: 20px; background-color: {color_class_map_cardholder['Total']}; border-radius: 8px; text-align: center; color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);'>"
-                    f"<h6>Total</h6><h3>{total_cardholder_count}</h3></div>", unsafe_allow_html=True)
+                    f"<h5>Total</h6><h3>{total_cardholder_count}</h6></div>", unsafe_allow_html=True)
 
     # Display yesterday's status
     st.write("### Yesterday's Status")
