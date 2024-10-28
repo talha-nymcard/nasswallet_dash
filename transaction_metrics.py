@@ -9,7 +9,7 @@ def load_data():
     inception_df = pd.read_csv('transaction_inception.csv')
     return yesterday_df, inception_df
 
-# Function to calculate transaction statistics
+# Function to calculate transaction statistics for each currency
 def calculate_transaction_stats(df):
     # Amount and currency logic
     df['amount'] = df.apply(lambda row: row['bill_amt'] if pd.notnull(row['bill_amt']) else row['txn_amt'], axis=1)
@@ -18,68 +18,97 @@ def calculate_transaction_stats(df):
     # Replace currency codes
     df['currency'] = df['currency'].replace({368: 'IQD', 840: 'USD'})
 
-    total_count = df.shape[0]
-    accepted_count = df[df['transaction_status'] == 'Approved'].shape[0]
-    rejected_count = df[df['transaction_status'] == 'Declined'].shape[0]
-    
-    approval_percentage = (accepted_count / total_count * 100) if total_count > 0 else 0
+    # Calculate stats for IQD and USD separately
+    stats = {}
+    for currency in ['IQD', 'USD']:
+        currency_df = df[df['currency'] == currency]
+        total_count = currency_df.shape[0]
+        accepted_count = currency_df[currency_df['transaction_status'] == 'Approved'].shape[0]
+        rejected_count = currency_df[currency_df['transaction_status'] != 'Approved'].shape[0]
+        approval_percentage = (accepted_count / total_count * 100) if total_count > 0 else 0
 
-    # Group by transaction_type, status, currency, and network_type
-    grouped = df.groupby(['transaction_type', 'transaction_status', 'currency', 'networkname']).agg(
-        total_amount=('amount', 'sum'),
-        transaction_count=('transaction_type', 'count')
-    ).reset_index()
+        accepted_amount = currency_df[currency_df['transaction_status'] == 'Approved']['amount'].sum()
+        rejected_amount = currency_df[currency_df['transaction_status'] != 'Approved']['amount'].sum()
 
-    # Calculate currency-specific amounts
-    accepted_iqd_amount = grouped[(grouped['transaction_status'] == 'Approved') & (grouped['currency'] == 'IQD')]['total_amount'].sum()
-    accepted_usd_amount = grouped[(grouped['transaction_status'] == 'Approved') & (grouped['currency'] == 'USD')]['total_amount'].sum()
-    rejected_iqd_amount = grouped[(grouped['transaction_status'] == 'Declined') & (grouped['currency'] == 'IQD')]['total_amount'].sum()
-    rejected_usd_amount = grouped[(grouped['transaction_status'] == 'Declined') & (grouped['currency'] == 'USD')]['total_amount'].sum()
+        stats[currency] = {
+            'Total Transactions': total_count,
+            'Accepted Transactions': accepted_count,
+            'Rejected Transactions': rejected_count,
+            'Approval Percentage': round(approval_percentage, 2),
+            'Accepted Amount': accepted_amount,
+            'Rejected Amount': rejected_amount
+        }
 
-    return {
-        'Total Transactions': total_count,
-        'Accepted Transactions IQD': accepted_count,
-        'Accepted Transactions USD': accepted_count,
-        'Rejected Transactions IQD': rejected_count,
-        'Rejected Transactions USD': rejected_count,
-        'Approval Percentage': round(approval_percentage, 2),  # Round to 2 decimal points
-        'Accepted Amount IQD': accepted_iqd_amount,
-        'Accepted Amount USD': accepted_usd_amount,
-        'Rejected Amount IQD': rejected_iqd_amount,
-        'Rejected Amount USD': rejected_usd_amount,
-        'Grouped Data': grouped  # Ensure this is returned
-    }
+    return stats
 
-# Function to create summary DataFrame for a single currency
-def create_currency_summary_df(stats, currency):
-    return pd.DataFrame({
-        'Metrics': [
-            'Total Transactions', 
-            'Accepted Transactions',
-            'Rejected Transactions',
-            'Approval Percentage',
-            'Accepted Amount', 
-            'Rejected Amount'
-        ],
-        currency: [
-            stats['Total Transactions'],
-            stats[f'Accepted Transactions {currency}'],
-            stats[f'Rejected Transactions {currency}'],
-            f"{stats['Approval Percentage']:.2f}%",  # Format percentage with 2 decimal points
-            stats[f'Accepted Amount {currency}'],
-            stats[f'Rejected Amount {currency}'],
-        ]
-    })
+# Function to create HTML table with Streamlit-like styling
+def create_html_table(stats, currency):
+    table_html = f"""
+    <style>
+        .dataframe {{
+            width: 100%;
+            border: 1px solid #e0e0e0;
+            border-collapse: collapse;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }}
+        .dataframe th {{
+            background-color: black;
+            border: 1px solid #e0e0e0;
+            padding: 8px;
+            text-align: left;
+        }}
+        .dataframe td {{
+            border: 1px solid #e0e0e0;
+            padding: 8px;
+        }}
+    </style>
+    <table class="dataframe">
+        <tr>
+            <th>Metrics</th>
+            <th>{currency}</th>
+        </tr>
+        <tr>
+            <td>Total Transactions</td>
+            <td>{stats['Total Transactions']}</td>
+        </tr>
+        <tr>
+            <td>Accepted Transactions</td>
+            <td>{stats['Accepted Transactions']}</td>
+        </tr>
+        <tr>
+            <td>Rejected Transactions</td>
+            <td>{stats['Rejected Transactions']}</td>
+        </tr>
+        <tr>
+            <td>Approval Percentage</td>
+            <td>{stats['Approval Percentage']}%</td>
+        </tr>
+        <tr>
+            <td>Accepted Amount</td>
+            <td>{stats['Accepted Amount']}</td>
+        </tr>
+        <tr>
+            <td>Rejected Amount</td>
+            <td>{stats['Rejected Amount']}</td>
+        </tr>
+    </table>
+    """
+    return table_html
 
-# Function to display detailed transaction summaries
-def display_transaction_summaries(title, grouped_data):
-    st.write(grouped_data)  # Use st.write to remove serial numbers
+# Function to create grouped data
+def group_transaction_data(df):
+    grouped_data = df.groupby(
+        ['transaction_type','pos_entry_mode', 'CARD_PRESENT/CARD_NOT_PRESENT', 'transaction_status', 'eci', 'bill_curr', 'networkname']
+    ).size().reset_index(name='counts')
+    return grouped_data
 
 # Function to display pie charts for transaction status
 def display_pie_chart(stats, title, key_suffix):
     labels = ['Approved', 'Declined']
-    values_iqd = [stats['Accepted Transactions IQD'], stats['Rejected Transactions IQD']]
-    values_usd = [stats['Accepted Transactions USD'], stats['Rejected Transactions USD']]
+    values_iqd = [stats['IQD']['Accepted Transactions'], stats['IQD']['Rejected Transactions']]
+    values_usd = [stats['USD']['Accepted Transactions'], stats['USD']['Rejected Transactions']]
 
     # Create pie subplots
     fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'pie'}, {'type': 'pie'}]], subplot_titles=(f"{title} - IQD Transactions", f"{title} - USD Transactions"))
@@ -89,7 +118,7 @@ def display_pie_chart(stats, title, key_suffix):
 
     st.plotly_chart(fig, key=f"pie_chart_{key_suffix}")
 
-# Function to display pie chart based on transaction types
+# Function to display transaction type pie chart
 def display_transaction_type_pie_chart(grouped_data, title, key_suffix):
     # Group by transaction type
     transaction_type_counts = grouped_data['transaction_type'].value_counts()
@@ -98,83 +127,74 @@ def display_transaction_type_pie_chart(grouped_data, title, key_suffix):
     fig.update_layout(title=f"{title} - Transaction Type Distribution")
     st.plotly_chart(fig, key=f"type_pie_chart_{key_suffix}")
 
-# Function to display comparison bar chart between IQD and USD transactions
-def display_comparison_bar_chart(yesterday_stats):
-    labels = ['Accepted Transactions', 'Rejected Transactions', 'Total Transactions']
-    iqd_values = [
-        yesterday_stats['Accepted Transactions IQD'],
-        yesterday_stats['Rejected Transactions IQD'],
-        yesterday_stats['Total Transactions']
-    ]
-    usd_values = [
-        yesterday_stats['Accepted Transactions USD'],
-        yesterday_stats['Rejected Transactions USD'],
-        yesterday_stats['Total Transactions']
-    ]
-
-    fig = go.Figure(data=[
-        go.Bar(name='IQD', x=labels, y=iqd_values),
-        go.Bar(name='USD', x=labels, y=usd_values)
-    ])
-    fig.update_layout(barmode='group', title='Transaction Comparison: IQD vs USD')
-    
-    st.plotly_chart(fig, key="comparison_bar_chart")
-
 # Main function to display transaction metrics
 def display_transaction_metrics():
     # Load the data
     yesterday_df, inception_df = load_data()
 
-    # Calculate statistics
+    # Calculate statistics for Yesterday and Inception
     yesterday_stats = calculate_transaction_stats(yesterday_df)
     inception_stats = calculate_transaction_stats(inception_df)
 
-    # Create summary DataFrames for IQD and USD
-    yesterday_iqd_summary = create_currency_summary_df(yesterday_stats, 'IQD')
-    yesterday_usd_summary = create_currency_summary_df(yesterday_stats, 'USD')
-    inception_iqd_summary = create_currency_summary_df(inception_stats, 'IQD')
-    inception_usd_summary = create_currency_summary_df(inception_stats, 'USD')
+    # Create grouped data
+    inception_grouped_data = group_transaction_data(inception_df)
+    yesterday_grouped_data = group_transaction_data(yesterday_df)
 
-    # Display summaries for Inception and Yesterday in a 4-column layout
-    col1, col2, col3 = st.columns(3)
-    
-    # IQD and USD summaries (Inception)
+    # Display transaction summaries for Inception
+    st.write("### Transaction Summary (Inception)")
+    col1, col2, col3 = st.columns([1, 1, 1])
+
     with col1:
         st.write("#### IQD Transactions (Inception)")
-        st.dataframe(inception_iqd_summary, use_container_width=True)  # Use st.dataframe to avoid serial numbers
+        st.markdown(create_html_table(inception_stats['IQD'], 'IQD'), unsafe_allow_html=True)
     
     with col2:
         display_pie_chart(inception_stats, "Inception", key_suffix="inception")
-    
+
     with col3:
         st.write("#### USD Transactions (Inception)")
-        st.dataframe(inception_usd_summary, use_container_width=True)  # Use st.dataframe to avoid serial numbers
+        st.markdown(create_html_table(inception_stats['USD'], 'USD'), unsafe_allow_html=True)
 
-    # Display summaries for Yesterday
-    col4, col5, col6 = st.columns(3)
-    
+    # Display transaction summaries for Yesterday
+    st.write("### Transaction Summary (Yesterday)")
+    col4, col5, col6 = st.columns([1, 1, 1])
+
     with col4:
         st.write("#### IQD Transactions (Yesterday)")
-        st.dataframe(yesterday_iqd_summary, use_container_width=True)  # Use st.dataframe to avoid serial numbers
+        st.markdown(create_html_table(yesterday_stats['IQD'], 'IQD'), unsafe_allow_html=True)
+    
     with col5:
-        display_pie_chart(yesterday_stats, "Yesterday", key_suffix="yesterday")        
-
+        display_pie_chart(yesterday_stats, "Yesterday", key_suffix="yesterday")
+    
     with col6:
         st.write("#### USD Transactions (Yesterday)")
-        st.dataframe(yesterday_usd_summary, use_container_width=True)  # Use st.dataframe to avoid serial numbers
-
-    # Display transaction type distribution charts for Yesterday and Inception side by side
-    st.write("### Transaction Type Distribution")
-    col7, col8 = st.columns(2)
+        st.markdown(create_html_table(yesterday_stats['USD'], 'USD'), unsafe_allow_html=True)
+        
+    # Display transaction type distribution summaries for Yesterday and Inception
+    st.write("### Transaction Details")
     
+    col7, col8 = st.columns(2)
+
     with col7:
-        st.write("#### Inception")
-        display_transaction_type_pie_chart(inception_stats['Grouped Data'], "Inception", key_suffix="inception_type")
+        st.write("#### Inception Transaction Type Summary")
+        st.dataframe(inception_grouped_data)  # Use st.table to display Inception data
     
     with col8:
+        st.write("#### Yesterday Transaction Type Summary")
+        st.dataframe(yesterday_grouped_data)  # Use st.table to display Yesterday data
+        
+            # Display transaction type distribution charts
+    st.write("### Transaction Type Distribution")
+    col9, col10 = st.columns(2)
+
+    with col9:
+        st.write("#### Inception")
+        display_transaction_type_pie_chart(inception_df, "Inception", key_suffix="inception_type")
+
+    with col10:
         st.write("#### Yesterday")
-        display_transaction_type_pie_chart(yesterday_stats['Grouped Data'], "Yesterday", key_suffix="yesterday_type")
+        display_transaction_type_pie_chart(yesterday_df, "Yesterday", key_suffix="yesterday_type")
 
 # Run the transaction metrics
 if __name__ == "__main__":
-    display_transaction_metrics()  # Call the function to display transaction metrics
+    display_transaction_metrics()
