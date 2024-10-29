@@ -54,7 +54,7 @@ def create_html_table(stats, currency):
             line-height: 1.5;
         }}
         .dataframe th {{
-            background-color: black;
+            background-color: grey;
             border: 1px solid #e0e0e0;
             padding: 8px;
             text-align: left;
