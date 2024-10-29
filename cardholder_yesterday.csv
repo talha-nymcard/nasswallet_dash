@@ -1,4 +1,3 @@
-operation,newstate,count
-CARDHOLDER_STATUS_CHANGE,Activated,3
-CARDHOLDER_STATUS_CHANGE,Pending IDV,7
-CARDHOLDER_CREATION,Created,7
+"operation","newstate","count"
+CARDHOLDER_STATUS_CHANGE,Pending IDV,2
+CARDHOLDER_CREATION,Created,2
