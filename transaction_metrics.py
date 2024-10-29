@@ -100,7 +100,7 @@ def create_html_table(stats, currency):
 # Function to create grouped data
 def group_transaction_data(df):
     grouped_data = df.groupby(
-        ['transaction_type','pos_entry_mode', 'CARD_PRESENT/CARD_NOT_PRESENT', 'transaction_status', 'eci', 'bill_curr', 'networkname']
+        ['transaction_type','pos_entry_mode', 'CARD_PRESENT/CARD_NOT_PRESENT', 'transaction_status', 'eci', 'currency', 'networkname']
     ).size().reset_index(name='counts')
     return grouped_data
 
