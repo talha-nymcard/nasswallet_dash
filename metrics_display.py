@@ -44,7 +44,7 @@ def display_metrics():
         'Total': 'rgb(53 141 114)',               
         'Activated': '#669966',
         'Inactive': 'rgb(199 65 56)',
-        'Pending IDV': '#6699cc',
+        'Pending IDV/Created': '#6699cc',
         'Pending KYC': '#4692A4',
         'Terminated': 'rgb(67 178 173)',
         'Created': '#2199D4',
