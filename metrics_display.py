@@ -51,7 +51,7 @@ def display_metrics():
     }
 
     # Define the desired order of statuses
-    ordered_statuses = ['Created','Pending KYC', 'Pending IDV', 'Inactive', 'Activated', 'Suspended', 'Terminated']
+    ordered_statuses = ['Pending KYC', 'Pending IDV', 'Inactive', 'Activated', 'Suspended', 'Terminated']
 
     # Yesterday's data initialization
     count_dict = {
@@ -61,7 +61,7 @@ def display_metrics():
         "Inactive": 0,
         "Suspended": 0,
         "Terminated": 0,
-        "Created": 0,
+        
     }
 
     # Iterate through yesterday's data
