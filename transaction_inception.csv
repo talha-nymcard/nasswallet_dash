@@ -1,4 +1,37 @@
 "itc","transaction_type","pos_entry_mode","CARD_PRESENT/CARD_NOT_PRESENT","transaction_status","ca_name","date","eci","txn_amt","txn_curr","bill_curr","bill_amt","issuerfee","networkname","mcc"
+"222.01.200",Clearing,ICC,CARD_PRESENT,Approved,SHERATON ANKARA HOTEL    ,2024-10-31 03:00:00.927,,3240.00,"949","368",123868.53,15000.00,VISA,"6011"
+"222.00.200",Clearing,CONTACTLESS,CARD_PRESENT,Approved,TURSER TURIZM SERVIS YA  ,2024-10-31 03:00:00.772,,14908.00,"949","368",569948.18,0.00,VISA,"7011"
+"222.00.200",Clearing,CONTACTLESS,CARD_PRESENT,Approved,CAGDAS MARKET IRAN CADDES,2024-10-31 03:00:00.654,,599.26,"949","368",22910.33,0.00,VISA,"5411"
+"222.00.200",Clearing,CONTACTLESS,CARD_PRESENT,Approved,CAGDAS MARKET DEMIRTEPE S,2024-10-31 03:00:00.482,,370.43,"949","368",14161.92,0.00,VISA,"5411"
+"222.00.200",Clearing,MANUAL (key entry),CARD_NOT_PRESENT,Approved,ALP*zhaoleyu             ,2024-10-31 03:00:00.325,Non 3DS Txn,15.00,"156","368",2754.42,110.18,VISA,"7299"
+"222.00.200",Clearing,MANUAL (key entry),CARD_NOT_PRESENT,Approved,ALP*Yum China            ,2024-10-31 03:00:00.181,Non 3DS Txn,190.00,"156","368",34889.30,1395.57,VISA,"5814"
+"222.00.200",Clearing,MANUAL (key entry),CARD_NOT_PRESENT,Approved,IMOBIE* ANYUNLOCK        ,2024-10-31 03:00:00.052,Non 3DS Txn,45.99,"840","368",60246.88,4518.52,VISA,"7379"
+wtransfer,wtransfer,,,Approved,,2024-10-30 19:59:50.054,NA,75000.00,"368",,,0.00,,
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Card Expiry Mismatch,Careem Deliveries FZ-LLC,2024-10-30 19:29:20.718,"3DS Txn",10000.00,"368","368",10000.00,,VISA,"4121"
+"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,TAVACI RECEP USTA,2024-10-30 17:56:30.587,NA,2670.00,"949","368",102145.05,,VISA,"5812"
+"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,NATA VEGA MADO,2024-10-30 16:33:45.232,NA,325.00,"949","368",12433.39,,VISA,"5812"
+"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,NATA VEGA AVM SKECHE,2024-10-30 16:04:44.838,NA,4699.06,"949","368",179769.94,,VISA,"5941"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Fraud engine check has rejected the transaction,Alibaba.com,2024-10-30 11:59:29.711,"3DS Txn",558.21,"840","368",731254.89,,VISA,"5300"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Fraud engine check has rejected the transaction,Alibaba.com,2024-10-30 11:59:28.377,"3DS Txn",558.21,"840","368",731254.89,,VISA,"5300"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Minimum account balance limit reached,Alibaba.com,2024-10-30 11:54:45.338,Non 3DS Txn,558.21,"840","368",731254.89,,VISA,"5300"
+"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,ANADOLU REST/ANKA MA,2024-10-30 11:25:35.872,NA,715.00,"949","368",27353.45,,VISA,"5812"
+wtransfer,wtransfer,,,Approved,,2024-10-30 09:43:58.795,NA,100000.00,"368",,,5500.00,,
+"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,Talabat,2024-10-30 09:17:07.898,Non 3DS Txn,8900.00,"368","368",8900.00,,VISA,"5411"
+"100.00.100",Online Authorization,UNKNOWN,CARD_NOT_PRESENT,Minimum account balance limit reached,TOTERS              ,2024-10-30 09:10:03.322,NA,9250.00,"368",,,,CBI,"4214"
+"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,DESEN ORME SAN. VE TIC.,2024-10-30 08:52:57.454,NA,5199.80,"949","368",198926.53,,VISA,"5651"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Approved,Netflix.com,2024-10-30 08:51:00.743,Non 3DS Txn,3.99,"840","368",5226.90,209.08,VISA,"4899"
+"100.00.113",Online Authorization,UNKNOWN,CARD_NOT_PRESENT,Fraud engine check has rejected the transaction,Visa Provisioning Service,2024-10-30 08:50:57.408,NA,0.00,"840",,,,VISA,"6012"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Fraud engine check has rejected the transaction,G2A.COM,2024-10-30 08:49:26.137,"3DS Txn",2.58,"840","368",3379.80,,VISA,"5816"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Fraud engine check has rejected the transaction,G2A.COM,2024-10-30 08:46:29.495,"3DS Txn",2.58,"840","368",3379.80,,VISA,"5816"
+"100.00.100",Online Authorization,UNKNOWN,CARD_NOT_PRESENT,Approved,NASS WALLET,2024-10-30 08:44:04.847,NA,1000.00,"368",,,,CBI,"5732"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Approved,IMOBIE* ANYUNLOCK,2024-10-30 08:35:39.832,Non 3DS Txn,45.99,"840","368",60246.88,4518.52,VISA,"7379"
+applyCharges,applyCharges,,,Approved,,2024-10-30 08:34:32.616,NA,3.00,"368",,,,,
+wdebit,wdebit,,,Approved,,2024-10-30 07:39:38.509,NA,33000.00,"368",,,0.00,,
+wdebit,wdebit,,,Approved,,2024-10-30 07:39:37.346,NA,1000.00,"368",,,0.00,,
+wcredit,wcredit,,,Approved,,2024-10-30 07:24:12.214,NA,15500.00,"368",,,5500.00,,
+applyCharges,applyCharges,,,Approved,,2024-10-30 07:21:24.444,NA,3000.00,"368",,,,,
+wdebit,wdebit,,,Approved,,2024-10-30 07:19:56.004,NA,33000.00,"368",,,0.00,,
+wcredit,wcredit,,,Approved,,2024-10-30 07:18:28.792,NA,43000.00,"368",,,5500.00,,
 "100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Card Permanently Closed,Netflix.com,2024-10-30 04:41:33.148,Non 3DS Txn,3.99,"840","368",5226.90,,VISA,"4899"
 "222.00.200",Clearing,MANUAL (key entry),CARD_NOT_PRESENT,Approved,WL *VUE*Testing Exam     ,2024-10-30 03:00:01.260,Non 3DS Txn,300.00,"840","368",392999.89,29475.00,VISA,"8299"
 "222.00.200",Clearing,CONTACTLESS,CARD_PRESENT,Approved,US POLO - NATA VEGA      ,2024-10-30 03:00:01.114,,899.92,"949","368",34454.26,0.00,VISA,"5651"
