@@ -1,4 +1,3 @@
 "operation","newstate","count"
-CARD_STATUS_CHANGE,Activated,2
+CARD_STATUS_CHANGE,Activated,1
 CARD_STATUS_CHANGE,Suspended,1
-CARD_CREATION,Created,1
