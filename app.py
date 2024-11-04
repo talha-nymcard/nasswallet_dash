@@ -1,6 +1,6 @@
 import streamlit as st
 from metrics_display import display_metrics
-from transaction_metrics import display_transaction_metrics  # Import transaction metrics
+from banking_metrics import display_transaction_metrics  # Import transaction metrics
 # Set page configuration
 st.set_page_config(page_title="Nasswallet Dashboard", layout="wide")
 # Inject JavaScript to force dark theme
@@ -37,4 +37,5 @@ display_metrics()
 # Create a new row for Transaction Metrics
 st.subheader("Transaction Summary")
 st.markdown("<hr>", unsafe_allow_html=True)
-display_transaction_metrics()  # Call the function to display transaction metrics
+#display_transaction_metrics()  # Call the function to display transaction metrics
+display_transaction_metrics()
