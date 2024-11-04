@@ -103,12 +103,12 @@ def display_transaction_metrics():
     yesterday_df, inception_df = load_data()
 
     # Display summary tiles for Yesterday and Inception stats
-    st.write("### Inception Transaction Metrics")
+    #st.write("### Inception Transaction Metrics")
     inception_stats, inception_separated_stats = calculate_separated_stats(inception_df)
     display_summary_tiles(inception_stats, label="Inception")
     display_separated_stats_tiles(inception_separated_stats, label="Inception")
 
-    st.write("### Yesterday Transaction Metrics")
+    #st.write("### Yesterday Transaction Metrics")
     yesterday_stats, yesterday_separated_stats = calculate_separated_stats(yesterday_df)
     display_summary_tiles(yesterday_stats, label="Yesterday")
     display_separated_stats_tiles(yesterday_separated_stats, label="Yesterday")
