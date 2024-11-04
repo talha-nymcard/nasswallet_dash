@@ -62,10 +62,6 @@ def display_summary_tiles(stats, label=""):
         st.markdown("<h6 style='color: red;'>Total Rejected</h6>", unsafe_allow_html=True)
         col3.metric("", stats["Total Rejected"], delta_color="inverse")  # Red indicator
 
-    #col1.metric("Total Transactions", stats["Total Transactions"], delta_color="off")
-    #col2.metric("Total Approved", stats["Total Approved"], delta_color="normal")  # Green indicator
-    #col3.metric("Total Rejected", stats["Total Rejected"], delta_color="inverse")  # Red indicator
-
 # Function to display detailed separated stats for IQD and USD in tiles with color indicators
 def display_separated_stats_tiles(separated_stats, label=""):
     st.write(f"#### {label} Metrics (IQD and USD)")
@@ -91,24 +87,16 @@ def display_separated_stats_tiles(separated_stats, label=""):
             st.markdown(f"<h6 style='color: red;'>{currency} Rejected Amount</h6>", unsafe_allow_html=True)
             col5.metric("", f"{data['Rejected Amount']:.2f}", delta_color="inverse")  # Red
 
-        #col1.metric(f"{currency} Total Transactions", data["Total Transactions"], delta_color="off")
-        #col2.metric(f"{currency} Total Approved", data["Total Approved"], delta_color="normal")  # Green
-        #col3.metric(f"{currency} Total Rejected", data["Total Rejected"], delta_color="inverse")  # Red
-        #col4.metric(f"{currency} Approved Amount", f"{data['Approved Amount']:.2f}", delta_color="normal")  # Green
-        #col5.metric(f"{currency} Rejected Amount", f"{data['Rejected Amount']:.2f}", delta_color="inverse")  # Red
-
 # Main function to display transaction metrics with filtering options
 def display_transaction_metrics():
     # Load the data
     yesterday_df, inception_df = load_data()
 
     # Display summary tiles for Yesterday and Inception stats
-    #st.write("### Inception Transaction Metrics")
     inception_stats, inception_separated_stats = calculate_separated_stats(inception_df)
     display_summary_tiles(inception_stats, label="Inception")
     display_separated_stats_tiles(inception_separated_stats, label="Inception")
 
-    #st.write("### Yesterday Transaction Metrics")
     yesterday_stats, yesterday_separated_stats = calculate_separated_stats(yesterday_df)
     display_summary_tiles(yesterday_stats, label="Yesterday")
     display_separated_stats_tiles(yesterday_separated_stats, label="Yesterday")
@@ -136,6 +124,16 @@ def display_transaction_metrics():
         st.write("### Filtered Transaction Metrics")
         display_summary_tiles(filtered_stats, label="Filtered")
         display_separated_stats_tiles(filtered_separated_stats, label="Filtered")
+
+        # Add download button for filtered data
+        csv = filtered_df.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            label="Download Filtered Data as CSV",
+            data=csv,
+            file_name='filtered_transactions.csv',
+            mime='text/csv',
+            key='download-csv'
+        )
 
 # Run the transaction metrics
 if __name__ == "__main__":
