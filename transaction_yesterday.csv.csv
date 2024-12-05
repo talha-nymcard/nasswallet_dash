@@ -1,0 +1,17 @@
+"itc","transaction_type","pos_entry_mode","CARD_PRESENT/CARD_NOT_PRESENT","transaction_status","ca_name","ca_city","ca_country","date","eci","txn_amt","txn_curr","bill_curr","bill_amt","issuerfee","networkname","mcc"
+"222.00.200",Clearing,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,FACEBK*                  ,DUBLIN       ,IRL,2024-12-04 03:00:00.223,Non 3DS Txn,17.00,"840","368",22269.99,890.80,VISA,"7311"
+"222.00.200",Clearing,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,MSFT * E0200U8H0E        ,MSBILL.INFO  ,IRL,2024-12-04 03:00:01.133,,15.00,"840","368",19649.99,0.00,VISA,"5045"
+"222.00.200",Clearing,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,MSFT * E0200U8JUM        ,MSBILL.INFO  ,IRL,2024-12-04 03:00:01.587,,22.00,"840","368",28819.99,0.00,VISA,"5045"
+"222.00.200",Clearing,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,MSFT * E0200U8GW9        ,MSBILL.INFO  ,IRL,2024-12-04 03:00:02.188,,110.00,"840","368",144099.96,0.00,VISA,"5045"
+"222.00.200",Clearing,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,MICROSOFT#G067826498     ,MSBILL.INFO  ,IRL,2024-12-04 03:00:02.599,,46.00,"840","368",60259.98,0.00,VISA,"5045"
+"222.00.200",Clearing,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,MSFT * E0400UBBD2        ,MSBILL.INFO  ,IRL,2024-12-04 03:00:02.830,Non 3DS Txn,30.00,"840","368",39299.99,1572.00,VISA,"5045"
+wcredit,wcredit,,,Approved,,,,2024-12-04 10:34:31.194,NA,2040500.00,"368",,,40500.00,,
+"100.00.113",Online Authorization,UNKNOWN,CARD_NOT_PRESENT,Account Verification without CVV2 transaction is not allowed,Visa Provisioning Service,"",IRQ,2024-12-04 10:43:43.882,NA,0.00,"840",,,,VISA,"6012"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Approved,G2A.COM,Amsterdam,NLD,2024-12-04 10:44:29.963,"3DS Txn",2.57,"840","368",3366.70,134.67,VISA,"5816"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,advance velocity cumulative amount limit was exceeded,G2A.COM,Amsterdam,NLD,2024-12-04 10:48:03.427,"3DS Txn",2.57,"840","368",3366.70,,VISA,"5816"
+"100.00.113",Online Authorization,UNKNOWN,CARD_NOT_PRESENT,Account Verification without CVV2 transaction is not allowed,Visa Provisioning Service,"",IRQ,2024-12-04 10:50:01.695,NA,0.00,"840",,,,VISA,"6012"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,advance velocity cumulative amount limit was exceeded,G2A.COM,Amsterdam,NLD,2024-12-04 10:50:25.087,"3DS Txn",2.57,"840","368",3366.70,,VISA,"5816"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,advance velocity cumulative amount limit was exceeded,G2A.COM,Amsterdam,NLD,2024-12-04 14:58:28.109,"3DS Txn",2.57,"840","368",3366.70,,VISA,"5816"
+"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Approved,G2A.COM,Amsterdam,NLD,2024-12-04 15:02:35.425,"3DS Txn",2.57,"840","368",3366.70,134.67,VISA,"5816"
+wdebit,wdebit,,,Approved,,,,2024-12-04 15:33:44.706,NA,1996498.63,"368",,,0.00,,
+"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,FACEBK *9EXASDGX52,fb.me/ads,IRL,2024-12-04 17:46:18.020,Non 3DS Txn,41.00,"840","368",53709.98,2148.40,VISA,"7311"
