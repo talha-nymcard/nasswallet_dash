@@ -1,2 +1,3 @@
 "operation","newstate","count"
 CARDHOLDER_STATUS_CHANGE,Pending IDV,1
+CARDHOLDER_STATUS_CHANGE,Terminated,1
