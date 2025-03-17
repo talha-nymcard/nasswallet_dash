@@ -1,58 +1,48 @@
 "itc","transaction_type","pos_entry_mode","CARD_PRESENT/CARD_NOT_PRESENT","transaction_status","ca_name","ca_city","ca_country","date","eci","txn_amt","txn_curr","bill_curr","bill_amt","issuerfee","networkname","mcc"
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,MANGO FRANKFURT ZEIL 98-1,FRANKFURT,DEU,2025-01-08 18:20:21.381,NA,614.84,"978","368",840718.45,29425.15,VISA,"5651"
-"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Approved,APPLE.COM/BILL,ITUNES.COM,IRL,2025-01-08 17:18:24.327,Non 3DS Txn,18.43,"840","368",24143.29,2776.48,VISA,"5818"
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,GANT STORE,Frankfurt,DEU,2025-01-08 16:42:06.127,NA,214.00,"978","368",292618.81,10241.66,VISA,"5691"
-wcredit,wcredit,,,Approved,,,,2025-01-08 16:04:57.987,NA,5000000.00,"368",,,67500.00,,
-wcredit,wcredit,,,Approved,,,,2025-01-08 16:04:43.402,NA,5000000.00,"368",,,67500.00,,
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,ERMENEGILDO ZEGNA FRANKFU,FRANKFURT AM,DEU,2025-01-08 15:06:02.160,NA,4290.00,"978","368",5866049.92,205311.75,VISA,"5651"
-wcredit,wcredit,,,Approved,,,,2025-01-08 13:34:22.800,NA,513500.00,"368",,,13500.00,,
-"420.00.400",Reversal Advice,CONTACTLESS,CARD_PRESENT,Approved,Nwekar                   ,Erbil        ,IRQ,2025-01-08 12:27:03.242,NA,0.10,"368",,,750.00,CBI,"4814"
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,Nwekar                   ,Erbil        ,IRQ,2025-01-08 12:26:41.535,NA,0.10,"368",,,750.00,CBI,"4814"
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 11:50:00.569,NA,27000.00,"368",,,0.00,,
-"420.00.400",Reversal Advice,CONTACTLESS,CARD_PRESENT,Approved,Blue Reklam              ,Kirkuk       ,IRQ,2025-01-08 11:06:34.935,NA,250.00,"368",,,750.00,CBI,"4814"
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,Blue Reklam              ,Kirkuk       ,IRQ,2025-01-08 11:06:17.327,NA,250.00,"368",,,750.00,CBI,"4814"
-"420.00.400",Reversal Advice,CONTACTLESS,CARD_PRESENT,Approved,Vittoria Caffe           ,Erbil        ,IRQ,2025-01-08 10:50:38.963,NA,1.00,"368",,,750.00,CBI,"5999"
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,Vittoria Caffe           ,Erbil        ,IRQ,2025-01-08 10:49:45.906,NA,1.00,"368",,,750.00,CBI,"5999"
-"420.00.400",Reversal Advice,CONTACTLESS,CARD_PRESENT,Approved,Vittoria Caffe           ,Erbil        ,IRQ,2025-01-08 10:43:27.077,NA,1.00,"368",,,750.00,CBI,"5999"
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,Vittoria Caffe           ,Erbil        ,IRQ,2025-01-08 10:41:02.693,NA,1.00,"368",,,750.00,CBI,"5999"
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,RHEIN NECKAR VERKEHR GMBH,MANNHEIM,DEU,2025-01-08 10:27:33.959,NA,10.20,"978","368",13947.25,750.00,VISA,"4111"
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:48:03.234,NA,10000.00,"368",,,0.00,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:47:15.269,NA,7.00,"840",,,0.00,,
-wtransfer,wtransfer,,,required amount 10000.000,,,,2025-01-08 09:45:08.960,NA,10000.00,"368",,,,,
-wtransfer,wtransfer,,,Transfer Transaction Limit - USD,,,,2025-01-08 09:42:53.873,NA,5.00,"840",,,,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:41:02.054,NA,10000.00,"368",,,5500.00,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:37:08.632,NA,10000.00,"368",,,5500.00,,
-applyCharges,applyCharges,,,Approved,,,,2025-01-08 09:33:45.823,NA,3000.00,"368",,,,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:32:53.674,NA,10000.00,"368",,,5500.00,,
-wtransfer,wtransfer,,,Transfer Transaction Limit - USD,,,,2025-01-08 09:10:01.388,NA,5.00,"840",,,,,
-"420.00.400",Reversal Advice,CONTACTLESS,CARD_PRESENT,Approved,M7 Card                  ,kirkuk       ,IRQ,2025-01-08 09:09:39.058,NA,250.00,"368",,,750.00,CBI,"4814"
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,M7 Card                  ,kirkuk       ,IRQ,2025-01-08 09:09:18.190,NA,250.00,"368",,,750.00,CBI,"4814"
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:08:02.662,NA,5.00,"840",,,0.00,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:07:06.089,NA,15000.00,"368",,,0.00,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:05:13.668,NA,5.00,"840",,,0.00,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:04:25.597,NA,10000.00,"368",,,0.00,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 09:02:36.334,NA,10000.00,"368",,,5500.00,,
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,Gullan                   ,e            ,IRQ,2025-01-08 09:01:33.616,NA,0.50,"368",,,750.00,CBI,"5311"
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 08:56:04.970,NA,10000.00,"368",,,5500.00,,
-wtransfer,wtransfer,,,required amount 10000.000,,,,2025-01-08 08:52:51.106,NA,10000.00,"368",,,,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 08:51:50.291,NA,10000.00,"368",,,0.00,,
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 08:45:51.337,NA,10000.00,"368",,,5500.00,,
-"420.00.400",Reversal Advice,CONTACTLESS,CARD_PRESENT,Approved,Daro Phone               ,sulaymaniyah ,IRQ,2025-01-08 08:35:37.926,NA,250.00,"368",,,750.00,CBI,"4814"
-"100.00.100",Online Authorization,CONTACTLESS,CARD_PRESENT,Approved,Daro Phone               ,sulaymaniyah ,IRQ,2025-01-08 08:35:18.749,NA,250.00,"368",,,750.00,CBI,"4814"
-wtransfer,wtransfer,,,Approved,,,,2025-01-08 08:26:49.788,NA,10000.00,"368",,,5500.00,,
-wtransfer,wtransfer,,,required amount 10000.000,,,,2025-01-08 08:18:54.670,NA,10000.00,"368",,,,,
-wcredit,wcredit,,,Approved,,,,2025-01-08 08:15:12.084,NA,105500.00,"368",,,5500.00,,
-"100.00.100",Online Authorization,MANUAL (key entry),CARD_NOT_PRESENT,Approved,UDEMY  ONLINE COURSES,+18888385432,USA,2025-01-08 07:25:53.585,Non 3DS Txn,49.99,"840","368",65486.88,9823.04,VISA,"8299"
-"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Minimum account balance limit reached,LINKEDINPRE *60620004,LNKD.IN/BILL,IRL,2025-01-08 07:18:10.089,Non 3DS Txn,69.99,"840","368",91686.87,3209.04,VISA,"5968"
-"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Minimum account balance limit reached,LinkedInPre *60619974,LINKEDIN.COM,IRL,2025-01-08 07:18:08.535,Non 3DS Txn,69.99,"840","368",91686.87,3209.04,VISA,"5968"
-"222.00.200",Clearing,CONTACTLESS,CARD_PRESENT,Approved,RHEIN NECKAR VERKEHR GMBH,MANNHEIM     ,DEU,2025-01-08 03:00:01.126,,36.30,"978","368",49031.88,1716.12,VISA,"4111"
-"222.00.200",Clearing,CONTACTLESS,CARD_PRESENT,Approved,Boardinghotel Premium    ,Heidelberg   ,DEU,2025-01-08 03:00:00.969,,390.00,"978","368",526788.84,18437.61,VISA,"7011"
-"222.00.200",Clearing,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,AIRBNB * HMMJFKNWY2      ,"415-800-5959 ",GBR,2025-01-08 03:00:00.770,Non 3DS Txn,1752.83,"840","368",2296206.63,264063.77,VISA,"4722"
-"222.00.200",Clearing,ICC,CARD_PRESENT,Approved,LOTTE MALL HANOI         ,HA NOI       ,VNM,2025-01-08 03:00:00.636,,1150000.00,"704","368",59148.04,2070.18,VISA,"5311"
-"222.00.200",Clearing,ICC,CARD_PRESENT,Approved,CTTNHH MTV THU CONG TRUC ,HA NOI       ,VNM,2025-01-08 03:00:00.486,,1205000.00,"704","368",61976.85,2169.19,VISA,"5970"
-"222.00.200",Clearing,ICC,CARD_PRESENT,Approved,UNIQLO LOTTE MALL HN     ,HA NOI       ,VNM,2025-01-08 03:00:00.361,,2827000.00,"704","368",145401.30,5089.05,VISA,"5691"
-"222.00.200",Clearing,CONTACTLESS,CARD_PRESENT,Approved,Starbucks 53136 Hauptstra,Heidelberg   ,DEU,2025-01-08 03:00:00.220,,41.60,"978","368",56190.81,1966.68,VISA,"5814"
-"222.00.200",Clearing,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,Patreon* Membership      ,Internet     ,IRL,2025-01-08 03:00:00.059,Non 3DS Txn,9.00,"840","368",11790.00,1693.20,VISA,"5815"
-"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Minimum account balance limit reached,NETFLIX.COM,"408-724-9160",NLD,2025-01-07 23:52:57.651,Non 3DS Txn,9.99,"840","368",13086.90,750.00,VISA,"4899"
-"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Minimum account balance limit reached,DISCORD* NITROBASIC-MO,+18885940085,USA,2025-01-07 22:42:04.560,Non 3DS Txn,2.99,"840","368",3916.90,750.00,VISA,"7372"
-"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,AL MAYA SUPERMARKET AL M,New Dubai,ARE,2025-01-07 22:12:06.562,NA,382466.21,"368","368",382466.21,,VISA,"5411"
+"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Minimum account balance limit reached,ATLASSIAN,+14157011110,USA,2025-03-16 20:34:27.628,Non 3DS Txn,99.84,"840","368",130790.36,8501.37,VISA,"5734"
+"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Minimum account balance limit reached,ATLASSIAN,+14157011110,USA,2025-03-16 20:18:32.402,Non 3DS Txn,99.84,"840","368",130790.36,8501.37,VISA,"5734"
+"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,FACEBK *TPJ35L8GV2,fb.me/ads,IRL,2025-03-16 17:23:51.273,Non 3DS Txn,5.00,"840","368",6550.00,425.75,VISA,"7311"
+"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,FACEBK *LE4VQJCX52,fb.me/ads,IRL,2025-03-16 17:09:52.937,Non 3DS Txn,55.00,"840","368",72049.98,4683.25,VISA,"7311"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Twimalik Smoke           ,Sulaymaniyah ,IRQ,2025-03-16 13:09:54.206,NA,1.00,"368",,,0.01,CBI,"5993"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Twimalik Smoke           ,Sulaymaniyah ,IRQ,2025-03-16 13:08:49.629,NA,1.00,"368",,,0.01,CBI,"5993"
+"100.00.100",Online Authorization,UNKNOWN,CARD_NOT_PRESENT,Approved,Operation Test           ,erbil        ,IRQ,2025-03-16 13:04:29.825,NA,1.00,"368",,,0.01,CBI,"4814"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Terea Store              ,Erbil        ,IRQ,2025-03-16 13:00:40.412,NA,1.00,"368",,,0.01,CBI,"5993"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Terea Store              ,Erbil        ,IRQ,2025-03-16 13:00:16.083,NA,1.00,"368",,,0.01,CBI,"5993"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Terea Store              ,Erbil        ,IRQ,2025-03-16 12:58:09.540,NA,1.00,"368",,,0.01,CBI,"5993"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Minimum account balance limit reached,Terea Store              ,Erbil        ,IRQ,2025-03-16 12:57:47.042,NA,100000.00,"368",,,1000.00,CBI,"5993"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Terea Store              ,Erbil        ,IRQ,2025-03-16 12:57:03.076,NA,1.00,"368",,,0.01,CBI,"5993"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Jhe Jutyar               ,Duhok        ,IRQ,2025-03-16 12:46:57.957,NA,1.00,"368",,,0.01,CBI,"5499"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Jhe Jutyar               ,Duhok        ,IRQ,2025-03-16 12:46:33.621,NA,1.00,"368",,,0.01,CBI,"5499"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Peshangay Sarkawt        ,Sulaymaniyah ,IRQ,2025-03-16 12:32:07.723,NA,1.00,"368",,,0.01,CBI,"5732"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Peshangay Sarkawt        ,Sulaymaniyah ,IRQ,2025-03-16 12:26:03.377,NA,1.00,"368",,,0.01,CBI,"5732"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Start Click              ,Duhok        ,IRQ,2025-03-16 12:10:26.635,NA,1.00,"368",,,0.01,CBI,"5732"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Start Click              ,Duhok        ,IRQ,2025-03-16 12:08:51.334,NA,1.00,"368",,,0.01,CBI,"5732"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Baby Center              ,Duhok        ,IRQ,2025-03-16 12:00:10.436,NA,1.00,"368",,,0.01,CBI,"5641"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Baby Center              ,Duhok        ,IRQ,2025-03-16 11:59:23.507,NA,1.00,"368",,,0.01,CBI,"5641"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Niga Warehouse           ,Sulaymaniyah ,IRQ,2025-03-16 11:35:12.985,NA,1.00,"368",,,0.01,CBI,"5719"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Niga Warehouse           ,Sulaymaniyah ,IRQ,2025-03-16 11:34:39.747,NA,1.00,"368",,,0.01,CBI,"5719"
+wdebit,wdebit,,,Approved,,,,2025-03-16 08:57:17.972,NA,33000.00,"368",,,0.00,,
+wdebit,wdebit,,,Approved,,,,2025-03-16 08:57:16.364,NA,1000.00,"368",,,0.00,,
+applyCharges,applyCharges,,,Approved,,,,2025-03-16 08:53:23.417,NA,3000.00,"368",,,,,
+wcredit,wcredit,,,Approved,,,,2025-03-16 08:46:24.119,NA,91500.00,"368",,,5500.00,,
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,A&SHOES SHOP             ,Erbil        ,IRQ,2025-03-16 08:36:42.251,NA,1.00,"368",,,0.01,CBI,"5661"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,A&SHOES SHOP             ,Erbil        ,IRQ,2025-03-16 08:36:19.403,NA,1.00,"368",,,0.01,CBI,"5661"
+"100.00.113",Online Authorization,UNKNOWN,CARD_NOT_PRESENT,Account Verification without CVV2 transaction is not allowed,Visa Provisioning Service,"",IRQ,2025-03-16 08:33:01.623,NA,0.00,"840",,,,VISA,"6012"
+"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,FACEBK *CN73GJU432,Dublin,IRL,2025-03-16 08:32:59.689,Non 3DS Txn,33.00,"840","368",43229.99,2809.95,VISA,"7311"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Europe Home              ,Erbil        ,IRQ,2025-03-16 07:28:06.107,NA,1.00,"368",,,0.01,CBI,"5621"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Europe Home              ,Erbil        ,IRQ,2025-03-16 07:27:37.695,NA,1.00,"368",,,0.01,CBI,"5621"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Chwarchra Pharmacy       ,Sulaymaniyah ,IRQ,2025-03-16 07:22:16.312,NA,1.00,"368",,,0.01,CBI,"5912"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Chwarchra Pharmacy       ,Sulaymaniyah ,IRQ,2025-03-16 07:21:46.753,NA,1.00,"368",,,0.01,CBI,"5912"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Fitness Home             ,Sulaymaniyah ,IRQ,2025-03-16 07:11:37.701,NA,1.00,"368",,,0.01,CBI,"7997"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Fitness Home             ,Sulaymaniyah ,IRQ,2025-03-16 07:11:11.760,NA,1.00,"368",,,0.01,CBI,"7997"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Incorrect PIN,Fitness Home             ,Sulaymaniyah ,IRQ,2025-03-16 07:10:00.440,NA,1.00,"368",,,,CBI,"7997"
+"100.00.100",Online Authorization,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,FACEBK *MWDTGMCGV2,fb.me/ads,IRL,2025-03-16 06:50:29.369,Non 3DS Txn,5.00,"840","368",6550.00,425.75,VISA,"7311"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Zada Oil                 ,Duhok        ,IRQ,2025-03-16 06:36:21.024,NA,1.00,"368",,,0.01,CBI,"5541"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Zada Oil                 ,Duhok        ,IRQ,2025-03-16 06:35:47.879,NA,1.00,"368",,,0.01,CBI,"5541"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Media Saray Cafe         ,Duhok        ,IRQ,2025-03-16 06:29:55.991,NA,1.00,"368",,,0.01,CBI,"5812"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Media Saray Cafe         ,Duhok        ,IRQ,2025-03-16 06:29:13.003,NA,1.00,"368",,,0.01,CBI,"5812"
+"420.00.400",Reversal Advice,ICC,CARD_PRESENT,Approved,Mahalat Al Badeea        ,Saladin      ,IRQ,2025-03-16 06:02:11.296,NA,1.00,"368",,,0.01,CBI,"5999"
+"100.00.100",Online Authorization,ICC,CARD_PRESENT,Approved,Mahalat Al Badeea        ,Saladin      ,IRQ,2025-03-16 06:01:30.193,NA,1.00,"368",,,0.01,CBI,"5999"
+"222.00.200",Clearing,DATA_ON_FILE,CARD_NOT_PRESENT,Approved,FACEBK *SC9LWJGX52       ,fb.me/ads    ,IRL,2025-03-16 03:00:00.051,Non 3DS Txn,55.00,"840","368",72049.98,4683.25,VISA,"7311"
+"100.00.100",Online Authorization,UNKNOWN,CARD_NOT_PRESENT,Approved,Operation Test           ,erbil        ,IRQ,2025-03-16 00:18:20.515,NA,10.00,"368",,,0.10,CBI,"4814"
+"100.00.100",Online Authorization,UNKNOWN,CARD_NOT_PRESENT,Approved,Operation Test           ,erbil        ,IRQ,2025-03-15 22:04:18.484,NA,10.00,"368",,,0.10,CBI,"4814"
